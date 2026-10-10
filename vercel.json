@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/freefire",
+      "destination": "https://freefireapis.lat/info-player"
+    }
+  ]
+}
