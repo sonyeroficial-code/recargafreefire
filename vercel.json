@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/freefire",
-      "destination": "https://freefireapis.lat/info-player"
+      "destination": "https://freefireapis.lat/GetPlayer"
     }
   ]
 }
