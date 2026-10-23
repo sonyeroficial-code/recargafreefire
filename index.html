@@ -271,6 +271,144 @@
   #root .demo-receipt-home { width:100%;min-height:50px;margin-top:12px;border:0;border-radius:5px;background:#e43830;color:white;font:700 15px Arial,sans-serif;cursor:pointer; }
   @media(max-width:420px) { #root .demo-receipt { padding:12px 9px 36px; } #root .demo-receipt-sheet { padding:18px 15px 22px; } }
 </style>
+<style id="sonyer-frefire-access-style">
+  /* Acceso Free Fire Sonyer: visual independiente de la interfaz de juego. */
+  #demo-watermark,#demo-license-dialog,[data-open-license]{display:none!important}
+  #demo-profile-screen [data-profile-label-license],#demo-profile-screen .profile-row:has([data-profile-label-license]){display:none!important}
+  #demo-profile-screen.auth-gate [hidden]{display:none!important}
+  #demo-profile-screen .ff-brand{display:none}
+  #demo-profile-screen:not(.auth-gate) [data-auth-disclosure]{display:none!important}
+  #demo-profile-screen.auth-gate{
+    background:radial-gradient(ellipse at 12% 0%,rgba(255,206,136,.38),transparent 38%),#f2f2f0;
+    color:#24242b;font-family:Arial,Helvetica,sans-serif;
+  }
+  #demo-profile-screen.auth-gate .profile-inner{
+    max-width:500px;min-height:100dvh;background:transparent;display:flex;flex-direction:column;
+  }
+  #demo-profile-screen.auth-gate .profile-inner>div:first-child{
+    position:relative!important;top:auto!important;min-height:193px;box-sizing:border-box;
+    padding:39px 18px 39px!important;flex-direction:column;gap:6px!important;
+    justify-content:center;overflow:hidden;
+    border:0!important;border-radius:0 0 30px 30px;
+    background:linear-gradient(132deg,#161c29 5%,#273347 58%,#1b2232 100%)!important;
+    box-shadow:0 12px 26px rgba(22,28,41,.14);
+  }
+  #demo-profile-screen.auth-gate .profile-inner>div:first-child:before{
+    content:"";position:absolute;inset:-130px auto auto -100px;width:290px;height:290px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,136,49,.26),transparent 66%);pointer-events:none;
+  }
+  #demo-profile-screen.auth-gate .profile-inner>div:first-child:after{
+    content:"";position:absolute;width:240px;height:240px;right:-140px;bottom:-170px;
+    transform:rotate(31deg);border:1px solid rgba(255,180,84,.18);box-shadow:0 0 0 24px rgba(255,255,255,.025),0 0 0 52px rgba(255,255,255,.017);pointer-events:none;
+  }
+  #demo-profile-screen.auth-gate [data-profile-back],#demo-profile-screen.auth-gate #demo-profile-heading{display:none!important}
+  #demo-profile-screen.auth-gate .ff-brand{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:4px;width:100%}
+  #demo-profile-screen.auth-gate .ff-brand-logo{display:block;width:min(218px,70vw);height:auto;max-height:75px;object-fit:contain;filter:drop-shadow(0 4px 7px rgba(0,0,0,.25))}
+  #demo-profile-screen.auth-gate .ff-brand-mark{display:flex;align-items:center;gap:8px;color:#ffe0b3;font-size:10px;font-weight:900;letter-spacing:2.4px}
+  #demo-profile-screen.auth-gate .ff-brand-mark:before,#demo-profile-screen.auth-gate .ff-brand-mark:after{content:"";width:21px;height:1px;background:#dc944b;opacity:.8}
+  #demo-profile-screen.auth-gate .profile-inner>div:last-child{
+    position:relative;z-index:2;box-sizing:border-box;width:100%;padding:0 17px 24px!important;margin-top:-25px;
+  }
+  #demo-profile-screen.auth-gate section{
+    box-sizing:border-box;margin:0!important;padding:22px 21px 20px!important;
+    border:1px solid #e3e2df!important;border-radius:21px!important;
+    background:#fff!important;box-shadow:0 17px 45px rgba(29,36,50,.11),0 2px 6px rgba(29,36,50,.035);
+  }
+  #demo-profile-screen.auth-gate [data-auth-heading]{display:block!important;margin:0 0 6px!important;color:#1c2534;font:900 22px/1.2 Arial,Helvetica,sans-serif!important;letter-spacing:-.5px}
+  #demo-profile-screen.auth-pending [data-auth-heading]{display:none!important}
+  #demo-profile-screen.auth-gate [data-auth-disclosure]{margin:0 0 17px!important;color:#777f8b!important;font:12px/1.55 Arial,Helvetica,sans-serif!important}
+  #demo-profile-screen.auth-gate .auth-tab{
+    flex:1;min-height:43px;box-sizing:border-box;border:0;border-radius:10px;
+    background:transparent;color:#6d7481;font:800 13px Arial,sans-serif;
+    transition:background .15s ease,color .15s ease,box-shadow .15s ease;
+  }
+  #demo-profile-screen.auth-gate [data-auth-signed-out]>div:first-child{
+    gap:3px!important;padding:4px;border-radius:13px;background:#f0f1f3;
+  }
+  #demo-profile-screen.auth-gate .auth-tab[aria-selected="true"]{background:#fff;color:#b94727;box-shadow:0 3px 10px rgba(27,35,46,.09)}
+  #demo-profile-screen.auth-gate .auth-label{position:relative;display:block;margin-top:12px;color:#383f4b;font:800 12px/1.5 Arial,sans-serif}
+  #demo-profile-screen.auth-gate .auth-field-icon{position:absolute;left:13px;bottom:13px;width:20px;height:20px;display:grid;place-items:center;color:#8a94a3;pointer-events:none}
+  #demo-profile-screen.auth-gate .auth-field-icon svg{display:block;width:20px;height:20px}
+  #demo-profile-screen.auth-gate .auth-input{
+    display:block;box-sizing:border-box;width:100%;height:47px;margin-top:5px;padding:0 12px 0 43px;
+    border:1px solid #dfe3e9;border-radius:11px;background:#fafbfc;color:#222936;
+    outline:none;font:600 14px Arial,Helvetica,sans-serif;letter-spacing:0;
+    transition:border-color .15s ease,background .15s ease,box-shadow .15s ease;
+  }
+  #demo-profile-screen.auth-gate .auth-input:focus{border-color:#ec9952;background:#fff;box-shadow:0 0 0 3px rgba(238,140,62,.13)}
+  #demo-profile-screen.auth-gate .auth-input::placeholder{color:#a6adb7;font-weight:400}
+  #demo-profile-screen.auth-gate [data-auth-submit],#demo-profile-screen.auth-gate [data-device-submit]{
+    width:100%;min-height:48px;margin-top:18px!important;padding:10px 16px!important;
+    border:0;border-radius:11px!important;background:linear-gradient(115deg,#f9a33b 0%,#f36d32 55%,#e9452d 100%)!important;
+    color:white;font:900 15px Arial,sans-serif!important;letter-spacing:.2px;
+    box-shadow:0 9px 19px rgba(224,91,45,.21);cursor:pointer;
+  }
+  #demo-profile-screen.auth-gate [data-auth-submit]:active,#demo-profile-screen.auth-gate [data-device-submit]:active{transform:translateY(1px)}
+  #demo-profile-screen.auth-gate [data-auth-submit].auth-submit-error{white-space:normal;line-height:1.3}
+  #demo-profile-screen.auth-gate [data-auth-reset]{display:block;margin:11px auto 0!important;color:#bb593c!important;font:750 12px Arial,sans-serif!important;text-decoration:underline;text-underline-offset:3px}
+  #demo-profile-screen.auth-gate [data-auth-message]{min-height:0!important;margin:10px 0 0!important;color:#b83c31!important;font:12px/1.45 Arial,sans-serif!important}
+  #demo-profile-screen.auth-gate [data-auth-message]:empty{display:none}
+  #demo-profile-screen .ff-contact{border-top:1px solid #eff0f2;margin-top:17px;padding-top:12px}
+  #demo-profile-screen .ff-contact>p{margin:0 0 9px;text-align:center;color:#9da3af;font:750 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:1.2px}
+  #demo-profile-screen .ff-contact-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  #demo-profile-screen .ff-contact-links a{
+    display:flex;align-items:center;justify-content:center;gap:7px;min-height:42px;
+    border:1px solid #e8eaee;border-radius:10px;background:#fcfcfd;
+    color:#343e4d;text-decoration:none;font:850 12px Arial,sans-serif;transition:background .15s ease;
+  }
+  #demo-profile-screen .ff-contact-links a:hover{background:#f3f6fa}
+  #demo-profile-screen .ff-contact-links a:focus-visible{outline:3px solid rgba(234,110,51,.25);outline-offset:2px}
+  #demo-profile-screen .ff-contact-links svg{width:18px;height:18px}
+  #demo-profile-screen .ff-contact-links .ff-telegram{color:#229ed9}
+  #demo-profile-screen .ff-contact-links .ff-whatsapp{color:#20b65b}
+  #demo-profile-screen.auth-pending .profile-inner>div:last-child{min-height:0!important;display:block!important;align-items:initial!important}
+  #demo-profile-screen.auth-gate.auth-pending [data-auth-pending]{display:block;padding:3px 0 7px!important;color:#737b87}
+  #demo-profile-screen.auth-gate .ff-loader-stage{display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;padding:11px 2px 5px}
+  #demo-profile-screen.auth-gate .ff-loader-icon{position:relative;display:grid;place-items:center;width:90px;height:90px;margin-bottom:15px}
+  #demo-profile-screen.auth-gate .ff-loader-icon:before{content:"";position:absolute;inset:0;border:3px solid transparent;border-top-color:#f1a352;border-right-color:#f1a352;border-radius:50%;animation:ff-orbit 1.5s linear infinite}
+  #demo-profile-screen.auth-gate .ff-loader-icon:after{content:"";position:absolute;inset:8px;border:1px dashed rgba(243,132,60,.35);border-radius:50%;animation:ff-orbit 5s linear infinite reverse}
+  #demo-profile-screen.auth-gate .ff-loader-emblem{display:grid;place-items:center;position:relative;z-index:1;width:60px;height:60px;border-radius:19px;background:linear-gradient(135deg,#ffc463,#fa823d 53%,#e54b2d);box-shadow:0 10px 24px rgba(236,105,43,.26),inset 0 1px rgba(255,255,255,.38);animation:ff-emblem-pulse 2s ease-in-out infinite}
+  #demo-profile-screen.auth-gate .ff-loader-emblem svg{width:29px;height:29px;color:#fff;filter:drop-shadow(0 2px 2px rgba(152,67,17,.24))}
+  #demo-profile-screen.auth-gate .ff-loader-eyebrow{display:flex;align-items:center;gap:6px;margin-bottom:8px;color:#c77731;font:850 10px Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase}
+  #demo-profile-screen.auth-gate .ff-loader-eyebrow:before{content:"";width:6px;height:6px;border-radius:50%;background:#e9963a;box-shadow:0 0 0 3px rgba(233,150,58,.14)}
+  #demo-profile-screen.auth-gate .ff-loader-title{margin:0;color:#222b39;font:900 19px/1.25 Arial,sans-serif;letter-spacing:-.4px}
+  #demo-profile-screen.auth-gate .ff-loader-desc{max-width:275px;margin:7px 0 16px;color:#7c8490;font:12px/1.5 Arial,sans-serif}
+  #demo-profile-screen.auth-gate .ff-loader-progress{width:min(100%,255px);height:5px;overflow:hidden;border-radius:999px;background:#f3e7dd}
+  #demo-profile-screen.auth-gate .ff-loader-progress:after{content:"";display:block;width:45%;height:100%;border-radius:999px;background:linear-gradient(90deg,#f8c162,#ee7238,#e54633);animation:ff-track 1.5s ease-in-out infinite}
+  #demo-profile-screen.auth-gate .ff-loader-footer{margin:11px 0 0;color:#adb0b9;font:11px Arial,sans-serif}
+  @keyframes ff-orbit{to{transform:rotate(360deg)}}
+  @keyframes ff-emblem-pulse{50%{transform:scale(1.055);box-shadow:0 12px 30px rgba(236,105,43,.35),inset 0 1px rgba(255,255,255,.4)}}
+  @keyframes ff-track{0%{transform:translateX(-100%)}100%{transform:translateX(245%)}}
+  @media(prefers-reduced-motion:reduce){#demo-profile-screen .ff-loader-icon:before,#demo-profile-screen .ff-loader-icon:after,#demo-profile-screen .ff-loader-emblem,#demo-profile-screen .ff-loader-progress:after{animation:none!important}}
+  #demo-profile-screen.auth-gate .auth-spinner{width:34px;height:34px;border:3px solid #f1e2d7;border-top-color:#f08340}
+  #demo-profile-screen.auth-waiting [data-auth-disclosure],#demo-profile-screen.auth-waiting [data-auth-heading]{display:none!important}
+  #demo-profile-screen.auth-waiting [data-auth-signed-in],#demo-profile-screen.auth-waiting [data-auth-signed-out]{display:none!important}
+  #demo-profile-screen:not(.auth-waiting) [data-auth-waiting]{display:none!important}
+  #demo-profile-screen.auth-gate [data-auth-waiting] .ff-wait-content{display:flex;flex-direction:column;align-items:center;gap:0;text-align:center;padding:6px 1px 4px}
+  #demo-profile-screen.auth-gate .ff-wait-status{
+    display:flex;align-items:center;gap:7px;margin-bottom:16px;padding:7px 11px;border-radius:30px;
+    background:#fff6e9;color:#b36d27;font:850 10px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;
+  }
+  #demo-profile-screen.auth-gate .ff-wait-dot{width:6px;height:6px;border-radius:50%;background:#e89b39;box-shadow:0 0 0 3px rgba(232,155,57,.16)}
+  #demo-profile-screen.auth-gate .ff-wait-content .auth-spinner{width:44px;height:44px;margin-bottom:16px;border-width:4px}
+  #demo-profile-screen.auth-gate .ff-wait-title{margin:0;color:#202b3b;font:900 21px/1.2 Arial,sans-serif;letter-spacing:-.4px}
+  #demo-profile-screen.auth-gate .ff-wait-note{max-width:290px;margin:9px 0 18px;color:#7a8490;font:12px/1.55 Arial,sans-serif}
+  #demo-profile-screen.auth-gate .ff-wait-identity{box-sizing:border-box;width:100%;padding:5px 12px;border:1px solid #e9eaf0;border-radius:12px;background:#fafbfc;text-align:left}
+  #demo-profile-screen.auth-gate .ff-wait-identity>div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;color:#8a929e;font:12px Arial,sans-serif}
+  #demo-profile-screen.auth-gate .ff-wait-identity>div+div{border-top:1px solid #e9eaf0}
+  #demo-profile-screen.auth-gate .ff-wait-identity strong{color:#293343;font-weight:850;overflow-wrap:anywhere;text-align:right}
+  #demo-profile-screen.auth-gate [data-auth-waiting] [data-auth-signout]{
+    box-sizing:border-box;width:100%;min-height:45px;margin-top:17px!important;border:1px solid #ebd9ce!important;
+    border-radius:11px!important;background:#fff6f1!important;color:#ba5435!important;font:850 13px Arial,sans-serif;cursor:pointer;
+  }
+  #demo-profile-screen.auth-gate [data-auth-device-transfer] [data-device-signout]{color:#b85337!important}
+  @media(max-width:380px){
+    #demo-profile-screen.auth-gate .profile-inner>div:first-child{min-height:167px;padding:29px 18px 34px!important}
+    #demo-profile-screen.auth-gate .ff-brand-logo{width:min(205px,66vw)}
+    #demo-profile-screen.auth-gate section{padding:19px 17px 18px!important}
+    #demo-profile-screen.auth-gate .profile-inner>div:last-child{padding:0 11px 18px!important}
+  }
+</style>
 <div id="demo-region-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="demo-region-heading">
   <div class="region-sheet">
     <div class="region-header">
@@ -302,6 +440,10 @@
   <div class="profile-inner">
     <div style="position:sticky;top:0;display:flex;align-items:center;gap:16px;padding:18px 20px;border-bottom:1px solid #3d3d49;background:#20202a">
       <button type="button" data-profile-back aria-label="Volver" style="padding:0;border:0;background:none;color:inherit;font:30px/1 Arial,sans-serif;cursor:pointer">‹</button>
+      <div class="ff-brand" aria-hidden="true">
+        <img class="ff-brand-logo" src="freefire-logo.png" alt="">
+        <div class="ff-brand-mark">SONYER ACCESS</div>
+      </div>
       <h2 id="demo-profile-heading" style="margin:0;font:700 20px Arial,sans-serif">Bebote</h2>
     </div>
     <div style="padding:28px 20px">
@@ -309,31 +451,58 @@
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:25px"><div style="width:60px;height:60px;display:grid;place-items:center;border-radius:50%;background:#5b3540;color:#fff;font:bold 27px Arial,sans-serif">J</div><div><strong data-profile-name style="display:block;font-size:20px">Jugador</strong><span data-profile-subtitle style="color:#aaaab6;font-size:13px">Datos de esta sesión</span></div></div>
       <div style="padding:6px 20px;border:1px solid #40404c;border-radius:5px;background:#292933">
         <div class="profile-row"><span data-profile-label-id>ID de jugador</span><strong data-profile-id>—</strong></div>
-        <div class="profile-row"><span data-profile-label-email>Correo electrónico</span><strong data-profile-email>—</strong></div>
+        <div class="profile-row"><span data-profile-label-email>Usuario Sonyer</span><strong data-profile-email>—</strong></div>
         <div class="profile-row" style="border-bottom:0"><span data-profile-label-region>Región</span><strong data-profile-region>Perú</strong></div>
         <div class="profile-row"><span data-profile-label-license>Licencia</span><strong data-profile-license>Sin licencia</strong></div>
       </div>
-      <p data-profile-note style="margin:22px 0;color:#aaaab6;font:13px/1.5 Arial,sans-serif">.</p>
+      <p data-profile-note style="margin:22px 0;color:#aaaab6;font:13px/1.5 Arial,sans-serif">Tu cuenta Sonyer está vinculada correctamente.</p>
       <button type="button" data-profile-login style="width:100%;padding:14px;border:0;border-radius:5px;background:#e43830;color:#fff;font:700 16px Arial,sans-serif;cursor:pointer">Ingresar ID de jugador</button>
       </div>
       <section style="margin-top:28px;padding:20px;border:1px solid #40404c;border-radius:5px;background:#292933">
-        <div data-auth-pending><div class="auth-spinner" aria-hidden="true"></div><span role="status">Comprobando sesión…</span></div>
-        <h3 data-auth-heading style="margin:0 0 6px;font:700 19px Arial,sans-serif">Cuenta</h3>
-        <p data-auth-disclosure style="margin:0 0 18px;color:#bcbcc6;font:13px/1.5 Arial,sans-serif">Crea una contraseña nueva.</p>
+        <div data-auth-pending>
+          <div class="ff-loader-stage" role="status" aria-live="polite" aria-label="Comprobando sesión">
+            <div class="ff-loader-icon" aria-hidden="true"><div class="ff-loader-emblem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4.5 5v6c0 5 3.2 8.2 7.5 11 4.3-2.8 7.5-6 7.5-11V5L12 2Z"/><path d="m8.7 12 2.1 2.2 4.5-4.7"/></svg></div></div>
+            <div class="ff-loader-eyebrow">Conexión segura</div>
+            <h3 class="ff-loader-title">Validando tu acceso</h3>
+            <p class="ff-loader-desc">Estamos comprobando tu cuenta Sonyer para continuar.</p>
+            <div class="ff-loader-progress" aria-hidden="true"></div>
+            <p class="ff-loader-footer">Un momento, por favor…</p>
+          </div>
+        </div>
+        <h3 data-auth-heading style="margin:0 0 6px;font:700 19px Arial,sans-serif">Acceso Sonyer</h3>
+        <p data-auth-disclosure style="margin:0 0 18px;color:#bcbcc6;font:13px/1.5 Arial,sans-serif">Ingresa con tu cuenta Sonyer. No uses tu contraseña de Garena.</p>
         <p data-auth-loading role="status" style="color:#bcbcc6;font:14px Arial,sans-serif">Conectando con Firebase…</p>
         <div data-auth-signed-out>
           <div style="display:flex;gap:9px"><button type="button" class="auth-tab" data-auth-mode="signin" aria-selected="true">Iniciar sesión</button><button type="button" class="auth-tab" data-auth-mode="signup" aria-selected="false">Crear cuenta</button></div>
           <form id="demo-auth-form" autocomplete="on">
-            <label class="auth-label" data-auth-name-wrap hidden><span data-auth-name-label>Nombre (opcional)</span><input class="auth-input" name="displayName" maxlength="40" autocomplete="name" placeholder="Tu nombre"></label>
-            <label class="auth-label"><span data-auth-email-label>Correo electrónico</span><input class="auth-input" name="email" type="email" required autocomplete="email" placeholder="nombre@correo.com"></label>
-            <label class="auth-label"><span data-auth-password-label>Contraseña</span><input class="auth-input" name="password" type="password" required minlength="6" autocomplete="current-password" placeholder="Mínimo 6 caracteres"></label>
+            <label class="auth-label" data-auth-name-wrap><span data-auth-name-label>ID del vendedor</span><span class="auth-field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.5-1.5 1.5-2 3-2s2.5.5 3 2m3-6h3m-3 4h3"/></svg></span><input class="auth-input" name="sellerId" maxlength="30" autocapitalize="characters" autocomplete="off" required placeholder="SONYER"></label>
+            <label class="auth-label"><span data-auth-email-label>Usuario o correo</span><span class="auth-field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 2.5-6 7-6s7 2 7 6"/></svg></span><input class="auth-input" name="username" type="text" maxlength="90" autocapitalize="none" autocomplete="username" required placeholder="Usuario"></label>
+            <label class="auth-label"><span data-auth-password-label>Contraseña</span><span class="auth-field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3"/></svg></span><input class="auth-input" name="password" type="password" required minlength="6" autocomplete="current-password" placeholder="Mínimo 6 caracteres"></label>
+            <label class="auth-label" data-auth-recovery-wrap hidden><span data-auth-recovery-label>Correo de recuperación (opcional)</span><span class="auth-field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><input class="auth-input" name="recoveryEmail" type="email" autocomplete="email" placeholder="tu@gmail.com"></label>
             <button type="submit" data-auth-submit style="width:100%;margin-top:20px;padding:14px;border:0;border-radius:5px;background:#e43830;color:#fff;font:700 16px Arial,sans-serif;cursor:pointer">Iniciar sesión</button>
           </form>
           <button type="button" data-auth-reset style="display:block;margin:18px auto 0;border:0;background:none;color:#f1827d;font:14px Arial,sans-serif;cursor:pointer">Olvidé mi contraseña</button>
+          <div class="ff-contact">
+            <p>Soporte y activaciones</p>
+            <div class="ff-contact-links">
+              <a href="https://t.me/Bebote19" target="_blank" rel="noopener noreferrer" aria-label="Abrir Telegram"><svg class="ff-telegram" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.7 3.6 2.8 10.9c-.9.4-.9 1.5.1 1.8l4.7 1.5 1.8 5.6c.2.7 1.1.9 1.6.3l2.8-3.4 4.9 3.6c.6.4 1.4.1 1.5-.7l2.9-14.5c.2-1-.6-1.8-1.4-1.5Zm-11 12.5-.6 2.1-1.2-4 9.8-7.2-8 9.1Z"/></svg>Telegram</a>
+              <a href="https://wa.me/51942978154" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp"><svg class="ff-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 11.6a8.2 8.2 0 0 1-12.3 7.1L3.6 20l1.3-4.2a8.2 8.2 0 1 1 15.3-4.2Z"/><path d="M9 7.8c-.5-.5-1.1-.1-1.2.4-.5 2.3 3.9 6.9 6.3 7.3.7.1 1.3-.6.8-1.2l-1.1-1.2c-.3-.3-.6-.2-.9 0l-.6.4c-1.2-.6-2.2-1.6-2.8-2.8l.4-.6c.2-.3.3-.6 0-.9L9 7.8Z"/></svg>WhatsApp</a>
+            </div>
+          </div>
         </div>
         <div data-auth-signed-in hidden>
           <p style="margin:0 0 15px;color:#c7c7d0;font:14px/1.5 Arial,sans-serif"><span data-auth-active-label>Sesión iniciada:</span> <strong data-auth-active-email style="color:white;overflow-wrap:anywhere"></strong></p>
           <button type="button" data-auth-signout style="width:100%;padding:12px;border:1px solid #e43830;border-radius:5px;background:transparent;color:#f1827d;font:700 15px Arial,sans-serif;cursor:pointer">Cerrar sesión</button>
+        </div>
+        <div data-auth-waiting hidden>
+          <div class="ff-wait-content">
+            <div class="ff-wait-status"><span class="ff-wait-dot"></span>Solicitud recibida</div>
+            <div class="auth-spinner" aria-hidden="true"></div>
+            <h3 class="ff-wait-title">Esperando aprobación</h3>
+            <p class="ff-wait-note">Tu cuenta se activará automáticamente cuando el vendedor apruebe tu solicitud.</p>
+            <div class="ff-wait-identity"><div><span>ID del vendedor</span><strong data-waiting-seller>—</strong></div><div><span>Usuario</span><strong data-waiting-username>—</strong></div></div>
+            <button type="button" data-auth-signout>Cambiar de cuenta</button>
+          </div>
         </div>
         <div data-auth-device-transfer hidden>
           <p data-device-explanation style="margin:0 0 16px;color:#c7c7d0;font:14px/1.5 Arial,sans-serif">Esta cuenta ya se usó en otro dispositivo. Para pasarla a este, cambia la contraseña. La sesión anterior se cerrará.</p>
@@ -556,6 +725,8 @@
   const profile = document.getElementById('demo-profile-screen');
   const authForm = document.getElementById('demo-auth-form');
   const deviceForm = document.getElementById('demo-device-form');
+  authForm.elements.sellerId.value = localStorage.getItem('sonyerFreeFireSellerV2') || '';
+  authForm.elements.username.value = localStorage.getItem('sonyerFreeFireUsernameV2') || '';
   let authUser = null;
   let authReady = false;
   let deviceTransfer = false;
@@ -564,41 +735,58 @@
   let licenseReady = false;
   let authChangeId = 0;
   let authMode = 'signin';
+  let approvalPending = false;
+  let resetMode = false;
+  let authButtonFeedbackTimer = null;
   function authMessage(message) {
     profile.querySelector('[data-auth-message]').textContent = message;
   }
   function renderAuthMode() {
+    clearTimeout(authButtonFeedbackTimer);
+    authButtonFeedbackTimer = null;
+    const submit = profile.querySelector('[data-auth-submit]');
+    submit.classList.remove('auth-submit-error');
+    submit.removeAttribute('title');
     profile.querySelectorAll('[data-auth-mode]').forEach(button =>
       button.setAttribute('aria-selected', String(button.dataset.authMode === authMode)));
-    profile.querySelector('[data-auth-name-wrap]').hidden = authMode !== 'signup';
+    profile.querySelector('[data-auth-name-wrap]').hidden = false;
+    profile.querySelector('[data-auth-recovery-wrap]').hidden = authMode !== 'signup' && !resetMode;
     authForm.elements.password.autocomplete = authMode === 'signup' ? 'new-password' : 'current-password';
-    profile.querySelector('[data-auth-submit]').textContent = authMode === 'signup'
+    submit.textContent = authMode === 'signup'
       ? (language === 'en' ? 'Create account' : 'Crear cuenta')
       : (language === 'en' ? 'Sign in' : 'Iniciar sesión');
     profile.querySelector('[data-auth-reset]').hidden = authMode !== 'signin';
+    profile.querySelector('[data-auth-reset]').textContent = resetMode ? 'Enviar enlace al correo' : '¿Olvidaste tu contraseña?';
   }
   function refreshProfile() {
     const root = document.getElementById('root');
     const wasGate = profile.classList.contains('auth-gate');
-    const gate = !authUser || !authReady || deviceTransfer || accessError;
+    const gate = !authUser || !authReady || deviceTransfer || accessError || approvalPending;
     profile.classList.toggle('auth-gate', gate);
+    profile.classList.toggle('auth-waiting', approvalPending);
     profile.classList.toggle('auth-pending', !authReady && !deviceTransfer && !accessError);
     document.body.classList.toggle('demo-auth-locked', gate);
     document.body.classList.toggle('demo-authenticated', !gate);
-    watermark.hidden = gate || !licenseReady || licenseActive;
-    if (gate) licenseDialog.hidden = true;
+    watermark.hidden = true;
+    licenseDialog.hidden = true;
     if (gate) profile.hidden = false;
     else if (wasGate) profile.hidden = true;
     profile.querySelector('#demo-profile-heading').textContent = gate
       ? (deviceTransfer ? (language === 'en' ? 'New device' : 'Nuevo dispositivo')
-        : !authReady ? 'Bebote' : (language === 'en' ? 'Sign in' : 'Iniciar sesión'))
+        : !authReady ? 'Free Fire Sonyer' : (language === 'en' ? 'Sign in' : 'Free Fire Sonyer'))
       : (language === 'en' ? 'My profile' : 'Mi perfil');
+    profile.querySelector('[data-auth-heading]').textContent = gate
+      ? (language === 'en' ? 'Sonyer access' : 'Acceso Sonyer')
+      : (language === 'en' ? 'Sonyer account' : 'Cuenta Sonyer');
     const id = root.querySelector('[data-player-id]')?.textContent.trim()
       || accountRoot?.querySelector('[data-player-id]')?.textContent.trim() || '';
     profile.querySelector('[data-profile-id]').textContent = id || (language === 'en' ? 'No session' : 'Sin sesión');
     profile.querySelector('[data-profile-name]').textContent = window.demoGetPlayerName?.(id) || authUser?.displayName || 'Jugador';
-    profile.querySelector('[data-profile-email]').textContent = authUser?.email
-      || root.querySelector('input[name="email"]')?.value.trim() || emailAddress || '—';
+    const sonyerUsername = window.demoAccountProfile?.loginUsername
+      || authForm.elements.username.value.trim().toLowerCase()
+      || (window.demoAccountProfile?.username || '').replace(/^frefire_/, '')
+      || '—';
+    profile.querySelector('[data-profile-email]').textContent = sonyerUsername;
     profile.querySelector('[data-profile-region]').textContent = region[2];
     profile.querySelector('[data-profile-license]').textContent = licenseActive
       ? (language === 'en' ? 'Active' : 'Activa')
@@ -608,7 +796,10 @@
     profile.querySelector('[data-auth-signed-out]').hidden = !!authUser;
     profile.querySelector('[data-auth-signed-in]').hidden = !authUser || deviceTransfer;
     profile.querySelector('[data-auth-device-transfer]').hidden = !deviceTransfer;
-    profile.querySelector('[data-auth-active-email]').textContent = authUser?.email || '';
+    profile.querySelector('[data-auth-active-email]').textContent = sonyerUsername === '—' ? '' : sonyerUsername;
+    profile.querySelector('[data-auth-waiting]').hidden = !approvalPending;
+    profile.querySelector('[data-waiting-seller]').textContent = window.demoAccountProfile?.sellerId || '—';
+    profile.querySelector('[data-waiting-username]').textContent = window.demoAccountProfile?.loginUsername || '—';
   }
   window.demoAuthChanged = async user => {
     const changeId = ++authChangeId;
@@ -616,6 +807,7 @@
     authReady = !user;
     deviceTransfer = false;
     accessError = false;
+    approvalPending = false;
     licenseActive = false;
     licenseReady = !user;
     authMessage('');
@@ -627,6 +819,13 @@
       if (access.blocked) {
         await window.demoAuth.signOut().catch(() => {});
         authMessage(language === 'en' ? 'This account is blocked in this app.' : 'Esta cuenta está bloqueada en esta app.');
+        return;
+      }
+      if (access.pending) {
+        approvalPending = true;
+        authReady = true;
+        refreshProfile();
+        window.demoAuth.watchDevice(user.uid);
         return;
       }
       if (access.deviceMismatch) {
@@ -661,6 +860,7 @@
     authUser = null;
     deviceTransfer = false;
     accessError = false;
+    approvalPending = false;
     licenseActive = false;
     licenseReady = false;
     refreshProfile();
@@ -687,6 +887,12 @@
         window.demoAuth.signOut().then(() => authMessage(language === 'en' ? 'This account is blocked in this app.' : 'Esta cuenta está bloqueada en esta app.')).catch(() => {});
         return;
       }
+      if (access.pending) {
+        approvalPending = true;
+        authReady = true;
+        refreshProfile();
+        return;
+      }
       if (access.deviceMismatch) {
         if (accessError) {
           accessError = false;
@@ -696,6 +902,7 @@
         return;
       }
       const recovered = accessError;
+      approvalPending = false;
       licenseActive = access.licensed;
       licenseReady = true;
       authReady = true;
@@ -751,7 +958,7 @@
     profile.querySelector('#demo-profile-heading').textContent = language === 'en' ? 'My profile' : 'Mi perfil';
     profile.querySelector('[data-profile-subtitle]').textContent = language === 'en' ? 'This session’s details' : 'Datos de esta sesión';
     profile.querySelector('[data-profile-label-id]').textContent = language === 'en' ? 'Player ID' : 'ID de jugador';
-    profile.querySelector('[data-profile-label-email]').textContent = language === 'en' ? 'Email' : 'Correo electrónico';
+    profile.querySelector('[data-profile-label-email]').textContent = language === 'en' ? 'Sonyer username' : 'Usuario Sonyer';
     profile.querySelector('[data-profile-label-region]').textContent = language === 'en' ? 'Region' : 'Región';
     profile.querySelector('[data-profile-label-license]').textContent = language === 'en' ? 'License' : 'Licencia';
     licenseDialog.querySelector('#demo-license-heading').textContent = language === 'en' ? 'Bebote license' : 'Licencia de Bebote';
@@ -762,14 +969,15 @@
     licenseDialog.querySelector('[data-license-account-label]').textContent = language === 'en' ? 'Account ID:' : 'ID de cuenta:';
     licenseDialog.querySelector('[data-license-copy]').textContent = language === 'en' ? 'Copy details' : 'Copiar datos';
     licenseDialog.querySelector('[data-license-check]').textContent = language === 'en' ? 'Already purchased · Check license' : 'Ya compré · Comprobar licencia';
-    profile.querySelector('[data-profile-note]').textContent = language === 'en' ? 'Details are shown only in this preview.' : '.';
+    profile.querySelector('[data-profile-note]').textContent = language === 'en' ? 'Your Sonyer account is linked.' : 'Tu cuenta Sonyer está vinculada correctamente.';
     profile.querySelector('[data-profile-login]').textContent = language === 'en' ? 'Enter player ID' : 'Ingresar ID de jugador';
-    profile.querySelector('[data-auth-heading]').textContent = language === 'en' ? 'This demo account' : 'Cuenta';
+    profile.querySelector('[data-auth-heading]').textContent = language === 'en' ? 'Sonyer access' : 'Acceso Sonyer';
     profile.querySelector('[data-auth-disclosure]').textContent = language === 'en'
-      ? 'Create a new password. Do not use your Garena password.'
-      : 'Crea una contraseña nueva.';
-    profile.querySelector('[data-auth-name-label]').textContent = language === 'en' ? 'Name (optional)' : 'Nombre (opcional)';
-    profile.querySelector('[data-auth-email-label]').textContent = language === 'en' ? 'Email' : 'Correo electrónico';
+      ? 'Use your Sonyer account. Never use your Garena password.'
+      : 'Ingresa con tu cuenta Sonyer. No uses tu contraseña de Garena.';
+    profile.querySelector('[data-auth-name-label]').textContent = language === 'en' ? 'Seller ID' : 'ID del vendedor';
+    profile.querySelector('[data-auth-email-label]').textContent = language === 'en' ? 'Username or email' : 'Usuario o correo';
+    profile.querySelector('[data-auth-recovery-label]').textContent = language === 'en' ? 'Recovery email (optional)' : 'Correo de recuperación (opcional)';
     profile.querySelector('[data-auth-password-label]').textContent = language === 'en' ? 'Password' : 'Contraseña';
     profile.querySelector('[data-auth-reset]').textContent = language === 'en' ? 'Forgot password?' : 'Olvidé mi contraseña';
     profile.querySelector('[data-auth-active-label]').textContent = language === 'en' ? 'Signed in:' : 'Sesión iniciada:';
@@ -784,7 +992,8 @@
     profile.querySelector('[data-device-signout]').textContent = language === 'en' ? 'Sign out' : 'Salir';
     profile.querySelector('[data-auth-mode="signin"]').textContent = language === 'en' ? 'Sign in' : 'Iniciar sesión';
     profile.querySelector('[data-auth-mode="signup"]').textContent = language === 'en' ? 'Create account' : 'Crear cuenta';
-    authForm.elements.displayName.placeholder = language === 'en' ? 'Your name' : 'Tu nombre';
+    authForm.elements.sellerId.placeholder = language === 'en' ? 'Seller ID' : 'ID vendedor (SONYER)';
+    authForm.elements.username.placeholder = language === 'en' ? 'Username or verified email' : 'Usuario o correo verificado';
     authForm.elements.password.placeholder = language === 'en' ? 'At least 6 characters' : 'Mínimo 6 caracteres';
     renderAuthMode();
     refreshProfile();
@@ -1347,15 +1556,22 @@
     const modeButton = event.target.closest('[data-auth-mode]');
     if (modeButton) {
       authMode = modeButton.dataset.authMode;
+      resetMode = false;
       authMessage('');
       renderAuthMode();
       return;
     }
     if (event.target.closest('[data-auth-reset]')) {
-      const email = authForm.elements.email.value.trim();
-      if (!email || !authForm.elements.email.checkValidity()) {
-        authForm.elements.email.focus();
-        authForm.elements.email.reportValidity();
+      if (!resetMode) {
+        resetMode = true;
+        renderAuthMode();
+        authForm.elements.recoveryEmail.focus();
+        return;
+      }
+      const email = authForm.elements.recoveryEmail.value.trim();
+      if (!email || !authForm.elements.recoveryEmail.checkValidity()) {
+        authForm.elements.recoveryEmail.focus();
+        authForm.elements.recoveryEmail.reportValidity();
         return;
       }
       if (!window.demoAuth) { authMessage(language === 'en' ? 'Connection unavailable.' : 'Sin conexión.'); return; }
@@ -1376,11 +1592,14 @@
     }
   });
   function friendlyAuthError(error) {
+    if (/^(El vendedor|Ingresa|El usuario|Ese usuario|La contraseña|El correo)/.test(error?.message || '')) {
+      return error.message;
+    }
     const errors = {
       'auth/email-already-in-use': ['Ese correo ya tiene cuenta.', 'This email already has an account.'],
       'auth/invalid-email': ['El correo no es válido.', 'Invalid email address.'],
       'auth/weak-password': ['Usa una contraseña más segura.', 'Use a stronger password.'],
-      'auth/invalid-credential': ['Correo o contraseña incorrectos.', 'Incorrect email or password.'],
+      'auth/invalid-credential': ['ID, usuario o contraseña incorrectos. Si vinculaste correo, también puedes ingresar con él.', 'Incorrect seller ID, username or password.'],
       'auth/wrong-password': ['La contraseña actual es incorrecta.', 'The current password is incorrect.'],
       'auth/user-disabled': ['Esta cuenta está bloqueada. Contacta a soporte.', 'This account is blocked. Contact support.'],
       'auth/too-many-requests': ['Demasiados intentos. Intenta más tarde.', 'Too many attempts. Try later.'],
@@ -1393,27 +1612,58 @@
     };
     return (errors[error?.code] || ['No se pudo completar. Intenta de nuevo.', 'Could not complete the request. Try again.'])[language === 'en' ? 1 : 0];
   }
+  function showAuthButtonError(error) {
+    const submit = authForm.querySelector('[data-auth-submit]');
+    const code = error?.code || '';
+    const message = error?.message || '';
+    const english = language === 'en';
+    let label = english ? 'Check your details and retry' : 'Revisa tus datos e inténtalo';
+    if (['auth/invalid-credential', 'auth/wrong-password', 'auth/user-not-found'].includes(code))
+      label = english ? 'Incorrect user or password' : 'Usuario o contraseña incorrectos';
+    else if (code === 'auth/email-already-in-use' || /^Ese usuario Free Fire ya existe/.test(message))
+      label = english ? 'User already registered' : 'Usuario ya registrado';
+    else if (code === 'auth/weak-password' || /contraseña.*(mínimo|menos|corta)/i.test(message))
+      label = english ? 'Password too short' : 'Contraseña muy corta';
+    else if (code === 'auth/invalid-email')
+      label = english ? 'Invalid email' : 'Correo no válido';
+    else if (code === 'auth/too-many-requests')
+      label = english ? 'Try again later' : 'Espera e intenta de nuevo';
+    else if (message && !code && message.length <= 36)
+      label = message;
+    authMessage('');
+    submit.classList.add('auth-submit-error');
+    submit.title = friendlyAuthError(error);
+    submit.textContent = label;
+    authButtonFeedbackTimer = setTimeout(renderAuthMode, 4500);
+  }
   authForm.addEventListener('submit', async event => {
     event.preventDefault();
-    if (!window.demoAuth) { authMessage(language === 'en' ? 'Connection unavailable.' : 'Sin conexión.'); return; }
-    const email = authForm.elements.email.value.trim();
+    renderAuthMode();
+    if (!window.demoAuth) { showAuthButtonError(new Error(language === 'en' ? 'Connection unavailable.' : 'Sin conexión.')); return; }
+    const sellerId = authForm.elements.sellerId.value.trim().toUpperCase();
+    const username = authForm.elements.username.value.trim().toLowerCase();
     const password = authForm.elements.password.value;
-    const name = authForm.elements.displayName.value.trim();
+    const recoveryEmail = authMode === 'signup' ? authForm.elements.recoveryEmail.value.trim().toLowerCase() : '';
     const submit = authForm.querySelector('[data-auth-submit]');
     submit.disabled = true;
     submit.textContent = language === 'en' ? 'Please wait…' : 'Espera…';
     authMessage('');
+    let authFailure = null;
     try {
-      if (authMode === 'signup') await window.demoAuth.signup(email, password, name);
-      else await window.demoAuth.signIn(email, password);
+      if (authMode === 'signup') await window.demoAuth.signup(sellerId, username, password, recoveryEmail);
+      else await window.demoAuth.signIn(sellerId, username, password);
       authForm.elements.password.value = '';
       authMessage('');
     } catch (error) {
-      authMessage(friendlyAuthError(error));
+      authFailure = error;
     } finally {
       submit.disabled = false;
       renderAuthMode();
+      if (authFailure) showAuthButtonError(authFailure);
     }
+  });
+  authForm.addEventListener('input', () => {
+    if (authForm.querySelector('[data-auth-submit]').classList.contains('auth-submit-error')) renderAuthMode();
   });
   deviceForm.addEventListener('submit', async event => {
     event.preventDefault();
@@ -1495,115 +1745,208 @@
 <script src="https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore-compat.js"></script>
 <script>
 const firebaseConfig = {
-  apiKey: 'AIzaSyAgHKSWXEhkaqmlMCJUyPyN82JXqckYDHY',
-  authDomain: 'fotos-6506e.firebaseapp.com',
-  projectId: 'fotos-6506e',
-  storageBucket: 'fotos-6506e.firebasestorage.app',
-  messagingSenderId: '203454756779',
-  appId: '1:203454756779:web:c1f759c14f642ac8d0c4ee'
+  apiKey: 'AIzaSyCfjKjr5rqM8qzpUpgqKfWMx3QsiPMHUeY',
+  authDomain: 'login-48d79.firebaseapp.com',
+  projectId: 'login-48d79',
+  storageBucket: 'login-48d79.firebasestorage.app',
+  messagingSenderId: '1081911677152',
+  appId: '1:1081911677152:web:dfe5416b6fe656f8994085'
 };
 try {
   if (!window.firebase?.auth || !window.firebase?.firestore) throw new Error('Firebase SDK unavailable');
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const db = firebase.firestore();
+  document.title = 'Free Fire Sonyer';
   auth.languageCode = document.documentElement.lang || 'es';
-  const deviceKey = 'bebote-browser-id-v1';
-  let installationId = localStorage.getItem(deviceKey);
-  if (!/^[0-9a-f]{32}$/.test(installationId || '')) {
-    const bytes = new Uint8Array(16);
-    crypto.getRandomValues(bytes);
-    installationId = Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('');
-    localStorage.setItem(deviceKey, installationId);
+  const APP_CODE = 'FREFIRE';
+  const APP_SOURCE = 'frefire_sonyer';
+  const APP_PREFIX = 'frefire_';
+  const DEVICE_KEY = 'sonyerFreeFireDeviceV2';
+  const SESSION_KEY = 'sonyerFreeFireSessionV2';
+  const SELLER_KEY = 'sonyerFreeFireSellerV2';
+  const USER_KEY = 'sonyerFreeFireUsernameV2';
+  const serverTime = () => firebase.firestore.FieldValue.serverTimestamp();
+  const sellerId = value => String(value || '').trim().toUpperCase();
+  const loginUsername = value => String(value || '').trim().toLowerCase().replace(/^frefire_/, '');
+  const displayUsername = value => APP_PREFIX + loginUsername(value);
+  const usernameKey = (seller, user) => seller + '__' + displayUsername(user);
+  const emailCacheKey = (seller, user) => 'sonyerFreeFireAuthEmail:' + seller + ':' + user;
+  const realEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim())
+    && !String(value).endsWith('@users.login-48d79.test');
+  const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  function fnv1a(value) {
+    let hash = 2166136261;
+    for (const character of value) { hash ^= character.charCodeAt(0); hash = Math.imul(hash, 16777619); }
+    return (hash >>> 0).toString(16).padStart(8, '0');
   }
+  function internalAuthEmail(seller, user) {
+    const identity = APP_CODE + '|' + seller + '|' + user;
+    return 'frefire.' + slug(seller) + '.' + slug(user) + '.' + fnv1a(identity) + '@users.login-48d79.test';
+  }
+  function savedId(key) {
+    let value = localStorage.getItem(key);
+    if (!value) {
+      if (!crypto.randomUUID) throw new Error('Abre la app desde HTTPS para activar el dispositivo.');
+      value = 'web-' + crypto.randomUUID();
+      localStorage.setItem(key, value);
+    }
+    return value;
+  }
+  const installationId = savedId(DEVICE_KEY);
+  const sessionId = () => savedId(SESSION_KEY);
   let stopWatchingDevice = null;
+  let creatingAccount = false;
   function stopDeviceWatch() {
     if (stopWatchingDevice) stopWatchingDevice();
     stopWatchingDevice = null;
   }
-  async function deviceRecord(user) {
-    const ref = db.collection('beboteDevices').doc(user.uid);
-    let snapshot = await ref.get({source:'server'});
-    if (!snapshot.exists) {
-      try {
-        await ref.set({deviceId:installationId,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
-      } catch (error) {
-        snapshot = await ref.get({source:'server'});
-        if (!snapshot.exists) throw error;
-      }
-      snapshot = await ref.get({source:'server'});
-    }
-    return snapshot.data()?.deviceId === installationId;
+  function hasExpired(profile) {
+    const date = profile.expiresAt || profile.expirationDate;
+    if (!date) return false;
+    const time = date.toMillis?.() ?? new Date(date).getTime();
+    return Number.isFinite(time) && time <= Date.now();
   }
   async function accountRecord(user) {
-    const ref = db.collection('beboteAccounts').doc(user.uid);
-    let snapshot = await ref.get({source:'server'});
-    if (!snapshot.exists) {
-      try {
-        await ref.set({
-          email:user.email || '',
-          displayName:user.displayName || '',
-          licensed:false,
-          blocked:false
-        });
-      } catch (error) {
-        snapshot = await ref.get({source:'server'});
-        if (!snapshot.exists) throw error;
-      }
-      snapshot = await ref.get({source:'server'});
+    const snapshot = await db.collection('users').doc(user.uid).get({source:'server'});
+    if (!snapshot.exists) return null;
+    const record = snapshot.data();
+    if (record.app !== APP_CODE && record.appSource !== APP_SOURCE) return null;
+    window.demoAccountProfile = record;
+    if (realEmail(user.email) && record.sellerId && record.loginUsername) {
+      localStorage.setItem(emailCacheKey(record.sellerId, record.loginUsername), user.email.toLowerCase());
     }
-    if (user.displayName && snapshot.data()?.displayName !== user.displayName) {
-      await ref.update({displayName:user.displayName});
-      snapshot = await ref.get({source:'server'});
-    }
-    return snapshot.data();
+    return record;
   }
   window.demoAuth = {
-    async signup(email, password, name) {
-      const result = await auth.createUserWithEmailAndPassword(email, password);
-      if (name) await result.user.updateProfile({displayName:name});
-      await accountRecord(result.user);
-      window.demoAuthChanged?.(result.user);
+    async signup(rawSeller, rawUsername, password, recoveryEmail) {
+      const sid = sellerId(rawSeller);
+      const uname = loginUsername(rawUsername);
+      if (!/^[A-Z0-9_-]{2,30}$/.test(sid)) throw new Error('Ingresa un ID de vendedor válido.');
+      if (!/^[a-z0-9._-]{2,40}$/.test(uname)) throw new Error('El usuario debe tener de 2 a 40 caracteres.');
+      if (password.length < 6) throw new Error('La contraseña debe tener mínimo 6 caracteres.');
+      const recovery = String(recoveryEmail || '').trim().toLowerCase();
+      if (recovery && !realEmail(recovery)) throw new Error('El correo de recuperación no es válido.');
+      const sellerSnap = await db.collection('sellers').doc(sid).get({source:'server'});
+      if (!sellerSnap.exists || sellerSnap.data()?.active !== true) throw new Error('El vendedor no existe o está desactivado.');
+      let createdUser = null;
+      creatingAccount = true;
+      try {
+        const result = await auth.createUserWithEmailAndPassword(internalAuthEmail(sid, uname), password);
+        createdUser = result.user;
+        const token = await createdUser.getIdTokenResult();
+        const userRef = db.collection('users').doc(createdUser.uid);
+        const nameRef = db.collection('app_usernames').doc(usernameKey(sid, uname));
+        const account = {
+          sellerId:sid,username:displayUsername(uname),appUsername:displayUsername(uname),
+          usernameLower:displayUsername(uname),loginUsername:uname,
+          app:APP_CODE,appName:APP_CODE,appSource:APP_SOURCE,sourceLabel:'App web',
+          email:createdUser.email,emailLower:createdUser.email.toLowerCase(),
+          authUid:createdUser.uid,authManaged:true,
+          approved:false,approvalStatus:'pending',
+          deviceId:installationId,sessionId:sessionId(),sessionState:'active',
+          sessionAuthTime:Number(token.claims.auth_time),
+          sessionChangedAt:serverTime(),lastLoginAt:serverTime(),
+          createdAt:serverTime(),updatedAt:serverTime()
+        };
+        await db.runTransaction(async tx => {
+          if ((await tx.get(nameRef)).exists) throw new Error('Ese usuario Free Fire ya existe con este vendedor.');
+          tx.set(userRef, account);
+          tx.set(nameRef, {uid:createdUser.uid,sellerId:sid,username:displayUsername(uname),createdAt:serverTime()});
+        });
+        localStorage.setItem(SELLER_KEY, sid);
+        localStorage.setItem(USER_KEY, uname);
+        let notice = '';
+        if (recovery) {
+          try {
+            await createdUser.verifyBeforeUpdateEmail(recovery);
+            notice = 'Revisa tu correo para verificar la dirección de recuperación.';
+          } catch (mailError) {
+            notice = 'Cuenta creada. No se pudo vincular el correo; podrás ingresarlo después.';
+          }
+        }
+        creatingAccount = false;
+        await window.demoAuthChanged?.(createdUser);
+        if (notice) document.querySelector('#demo-profile-screen [data-auth-message]').textContent = notice;
+        return createdUser;
+      } catch (error) {
+        if (createdUser) {
+          try { await createdUser.delete(); } catch (_) { await auth.signOut().catch(() => {}); }
+        }
+        throw error;
+      } finally {
+        creatingAccount = false;
+      }
     },
-    signIn: (email, password) => auth.signInWithEmailAndPassword(email, password),
-    reset: email => auth.sendPasswordResetEmail(email),
-    signOut: () => { stopDeviceWatch(); return auth.signOut(); },
+    async signIn(rawSeller, rawUsername, password) {
+      const sid = sellerId(rawSeller);
+      const input = String(rawUsername || '').trim().toLowerCase();
+      const emailLogin = realEmail(input);
+      const uname = emailLogin ? '' : loginUsername(input);
+      if (!/^[A-Z0-9_-]{2,30}$/.test(sid)) throw new Error('Ingresa el ID del vendedor.');
+      if (!emailLogin && !/^[a-z0-9._-]{2,40}$/.test(uname)) throw new Error('Ingresa un usuario válido.');
+      localStorage.setItem(SELLER_KEY, sid);
+      if (!emailLogin) localStorage.setItem(USER_KEY, uname);
+      const email = emailLogin ? input : localStorage.getItem(emailCacheKey(sid, uname)) || internalAuthEmail(sid, uname);
+      return auth.signInWithEmailAndPassword(email, password);
+    },
+    reset: email => auth.sendPasswordResetEmail(String(email || '').trim().toLowerCase()),
+    signOut: () => { stopDeviceWatch(); window.demoAccountProfile = null; return auth.signOut(); },
     checkAccess: async forceRefresh => {
       const user = auth.currentUser;
       if (!user) throw new Error('No active session');
       if (forceRefresh) await user.reload();
-      const record = await accountRecord(user);
-      if (record?.blocked === true) return {licensed:false,blocked:true,deviceMismatch:false};
-      const matched = await deviceRecord(user);
-      return {licensed:record?.licensed === true, blocked:false,deviceMismatch:!matched};
+      const profile = await accountRecord(user);
+      if (!profile || profile.blocked === true || profile.active === false ||
+          profile.status === 'blocked' || profile.approvalStatus === 'rejected' || hasExpired(profile)) {
+        return {licensed:false,blocked:true,pending:false,deviceMismatch:false};
+      }
+      if (profile.approved !== true) return {licensed:false,blocked:false,pending:true,deviceMismatch:false};
+      const mismatched = (profile.deviceId && profile.deviceId !== installationId) ||
+        (profile.sessionId && profile.sessionId !== sessionId()) ||
+        profile.sessionState === 'password_required';
+      return {licensed:true,blocked:false,pending:false,deviceMismatch:!!mismatched};
     },
     async transferDevice(currentPassword, newPassword) {
       const user = auth.currentUser;
-      if (!user?.email) throw new Error('No active email account');
+      if (!user?.email) throw new Error('Inicia sesión nuevamente.');
       const credential = firebase.auth.EmailAuthProvider.credential(user.email, currentPassword);
       await user.reauthenticateWithCredential(credential);
-      await user.updatePassword(newPassword);
-      try { await user.getIdToken(true); }
-      catch (_) { await auth.signInWithEmailAndPassword(user.email, newPassword); }
-      await db.collection('beboteDevices').doc(user.uid).update({
-        deviceId:installationId,
-        updatedAt:firebase.firestore.FieldValue.serverTimestamp()
+      const token = await user.getIdTokenResult();
+      const nextSession = 'web-' + crypto.randomUUID();
+      const userRef = db.collection('users').doc(user.uid);
+      await userRef.update({
+        deviceId:installationId,sessionId:nextSession,sessionState:'password_required',
+        sessionAuthTime:Number(token.claims.auth_time),sessionChangedAt:serverTime(),updatedAt:serverTime()
       });
-      return auth.currentUser;
+      localStorage.setItem(SESSION_KEY, nextSession);
+      await user.updatePassword(newPassword);
+      await userRef.update({sessionState:'active',passwordChangedAt:serverTime(),updatedAt:serverTime()});
+      return user;
     },
     watchDevice(uid) {
       stopDeviceWatch();
-      stopWatchingDevice = db.collection('beboteDevices').doc(uid).onSnapshot(snapshot => {
-        if (auth.currentUser?.uid === uid && snapshot.exists &&
-            snapshot.data()?.deviceId !== installationId) window.demoDeviceMoved?.(uid);
+      let prior = null;
+      stopWatchingDevice = db.collection('users').doc(uid).onSnapshot(snapshot => {
+        if (auth.currentUser?.uid !== uid || !snapshot.exists) return;
+        const data = snapshot.data() || {};
+        const current = [data.approved,data.approvalStatus,data.active,data.blocked,data.deviceId,data.sessionId].join('|');
+        if (prior === null) { prior = current; return; }
+        if (current === prior) return;
+        prior = current;
+        if (data.deviceId && data.deviceId !== installationId ||
+            data.sessionId && data.sessionId !== sessionId()) window.demoDeviceMoved?.(uid);
+        else window.demoAuthChanged?.(auth.currentUser);
       }, error => {
-        if (auth.currentUser?.uid === uid &&
-            ['permission-denied', 'unauthenticated'].includes(error?.code)) window.demoDeviceMoved?.(uid);
+        if (auth.currentUser?.uid === uid && ['permission-denied','unauthenticated'].includes(error?.code)) {
+          window.demoDeviceMoved?.(uid);
+        }
       });
     },
     setLanguage: code => { auth.languageCode = code; }
   };
   auth.onAuthStateChanged(user => {
+    if (creatingAccount) return;
     stopDeviceWatch();
     window.demoAuthChanged?.(user);
   }, () => window.demoAuthFailed?.());
